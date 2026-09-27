@@ -1,20 +1,51 @@
-// LR 3.2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Lab_03_2.cpp
+// Кіц Роман Романович
+// Лабораторна робота № 3.2
+// Розгалуження, задане формулою: функція з параметрами.
+// Варіант 12
 
 #include <iostream>
+#include <cmath>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    double x; // вхідний аргумент
+    double a; // вхідний параметр
+    double b; // вхідний параметр
+    double c; // вхідний параметр
+
+    double F; // результат обчислення виразу
+
+    cout << "a = "; cin >> a;
+    cout << "b = "; cin >> b;
+    cout << "c = "; cin >> c;
+    cout << "x = "; cin >> x;
+
+    // спосіб 1: розгалуження в скороченій формі
+    if (x < 0.6 && b + c != 0)
+        F = a * pow(x, 2) + b * b + c;
+    if (x > 0.6 && b + c == 0)
+        F = (x - a) / (x - c);
+    if (!(x < 0.6 && b + c != 0) && !(x > 0.6 && b + c == 0))
+        F = x / c + x / a;
+
+    cout << endl;
+    cout << "1) F = " << F << endl;
+
+    // спосіб 2: розгалуження в повній формі
+    if (x < 0.6 && b + c != 0) 
+        F = a * pow(x, 2) + b * b + c;
+    else
+        if (x > 0.6 && b + c == 0)
+            F = (x - a) / (x - c);
+        else
+            F = x / c + x / a;
+
+    cout << "2) F = " << F << endl;
+
+    cin.get();
+    cin.get();
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
